@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!--핸드폰크기에맞춰서 글씨크기맞춰줌-->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+</head>
+<body>
+<!-- Sidebar -->
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand"></li>
+
+              <% if user_signed_in? %>
+                <p><%= current_user.email %>님 환영합니다.</p>
+                <p><%= current_user.name %>님 환영합니다.</p>
+							<li><%= link_to "My Profile", edit_user_registration_path %></li>
+		          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+				    <% else %>
+				      <li><%= link_to "Sign in", new_user_session_path %></li>
+				      <li><%= link_to "Sign up", new_user_registration_path %></li>
+				    <% end %>
+                <li>
+                  <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+       </ul>
+  </div>
+</div>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+      <a href="#menu-toggle" id="menu-toggle" style="color:white;"><span class="hamburger" style="height: 23px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menu</span></a>
+      <!--mobile화면에서 home과 logim메뉴버튼-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home/index">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        <% if  user_signed_in? %>
+          <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+<%= yield %>
+
+</body>
+</html>

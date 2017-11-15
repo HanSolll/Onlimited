@@ -1,0 +1,26 @@
+<div class="well" style="padding-top:50px">
+    <% @item.each do |item| %>
+      <div class="item">
+            <%= item.name %><br>
+            <%= image_tag item.image.thumb.url %><br>
+            가격: <%= item.price %><br>
+            브랜드명: <%= item.brand %><br>
+            카테고리: <%= item.category %><br>
+            판매일: <%= item.dueDate %><br>
+            주소: <%= item.url %><br>
+            제품설명: <%= item.content %>
+      </div>
+    <% end %>
+</div>
+<style>
+    .well{
+        background-color :black;
+    }
+    .item{
+        position :relative;
+        padding-left :15px;
+        width :50%;
+        float: left;
+        box-sizing: border-box;
+    }
+</style>
