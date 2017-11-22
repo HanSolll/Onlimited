@@ -8,12 +8,12 @@
   margin-top:40%;
   margin-bottom:40%;
   height: 55vh;
-  min-height: 300px;
+  min-height: 400px;
   background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 .mainbackground{
   background-color:black;
@@ -26,10 +26,10 @@
   height: 55vh;
   min-height: 300px;
   background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
   }
 }
 
@@ -40,10 +40,10 @@
   height: 55vh;
   min-height: 300px;
   background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
   
 }
 }
