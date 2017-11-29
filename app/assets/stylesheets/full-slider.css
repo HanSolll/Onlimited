@@ -31,6 +31,13 @@
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
   }
+    #d-day_1{
+      /*postion: relative;*/
+      margin-top:23%;
+      margin-bottom:13%;
+      font-size: 50px;
+      font-family:'Bowlby One SC';
+    }
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
@@ -44,6 +51,11 @@
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
-  
-}
+  }
+   #d-day_1{
+    margin-top:40%;
+    margin-bottom:40%;
+    font-size: 50px;
+    font-family:'Bowlby One SC';
+    }
 }

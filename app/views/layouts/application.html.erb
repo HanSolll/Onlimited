@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
   <!--핸드폰크기에맞춰서 글씨크기맞춰줌-->
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -32,22 +33,22 @@
 				      <li><%= link_to "Sign up", new_user_registration_path %></li>
 				    <% end %><br>
                 <li>
-                  <a href="#">All</a>
+                  <a href="/item/all">All</a>
                 </li>
                 <li>
-                    <a href="#">Fashion</a>
+                    <a href="/item/fashion">Fashion</a>
                 </li>
                 <li>
-                    <a href="#">Cosmetic</a>
+                    <a href="/item/cosmetic">Cosmetic</a>
                 </li>
                 <li>
-                    <a href="#">Shoes</a>
+                    <a href="/item/shoes">Shoes</a>
                 </li>
                 <li>
-                    <a href="#">Brand</a>
+                    <a href="/item/brand">Brand</a>
                 </li>
                 <li>
-                    <a href="#">Etc</a>
+                    <a href="/item/etc">Etc</a>
                 </li>
        </ul>
   </div>

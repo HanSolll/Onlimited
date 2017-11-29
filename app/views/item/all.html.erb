@@ -1,12 +1,13 @@
 <div class="well" style="padding-top:50px">
     <% @item.each do |item| %>
+     <a href="/item/show/<%= item.id %>" style="font-color:black">
       <div class="item">
         <%= item.name %><br>
         <%= image_tag item.image.thumb.url %><br>
         
-        <%= link_to controller: "item", action: "like", class: "like-btn", method: :post, remote: :true do %>
+        <%= link_to item_like_path(item), class: "like-btn", method: :post, remote: :true do %>
           <div>
-            <span><p><i class="fa fa-thumbs-up fa-3x"></i></p></span>
+            <span><p><i class="fa fa-thumbs-up fa-x"></i></p></span>
           </div>
         <% end %> 
         <%= item.likes.size %><br> 
@@ -24,18 +25,23 @@
         판매일: <%= item.dueDate %><br>
         주소: <%= item.url %><br>
         제품설명: <%= item.content %>
-      </div>
-    <% end %>
+
+      <% end %>
+    
 </div>
 <style>
-    .well{
-        background-color :black;
-    }
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
     .item{
         position :relative;
-        padding-left :15px;
-        width :50%;
+        padding-left :40px;
+        width :45%;
         float: left;
-        box-sizing: border-box;
+        box-sizing :border-box;
+        display :inline-block;
+        margin-top :50px;
+        /*margin-right: 55px;*/
+        margin-left: 40px;
+        box-shadow :0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0, 0.08);
+        font-family: 'Jeju Gothic', sans-serif;
     }
 </style>

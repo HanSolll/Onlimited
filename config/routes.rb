@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home/index'
   
   get 'item/all'
+  
+  get 'item/show/:item_id' => 'item#show'
 
   get 'item/brand'
 
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   
   get 'item/all' => 'item#all'
   
-  post 'item/like/:item_id' => "likes#like_toggle"
+  post 'item/:item_id/like' => "likes#like_toggle" , :as => 'item_like'
   
   root 'home#index'
   
