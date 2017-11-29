@@ -1,14 +1,29 @@
 <div class="well" style="padding-top:50px">
     <% @item.each do |item| %>
       <div class="item">
-            <%= item.name %><br>
-            <%= image_tag item.image.thumb.url %><br>
-            가격: <%= item.price %><br>
-            브랜드명: <%= item.brand %><br>
-            카테고리: <%= item.category %><br>
-            판매일: <%= item.dueDate %><br>
-            주소: <%= item.url %><br>
-            제품설명: <%= item.content %>
+        <%= item.name %><br>
+        <%= image_tag item.image.thumb.url %><br>
+        
+        <%= link_to controller: "item", action: "like", class: "like-btn", method: :post, remote: :true do %>
+          <div>
+            <span><p><i class="fa fa-thumbs-up fa-3x"></i></p></span>
+          </div>
+        <% end %> 
+        <%= item.likes.size %><br> 
+        <script>
+          <% if current_user.is_like?(item) %>
+            $('.like-btn').addClass('liked');
+          <% else %>
+            $('.like-btn').addClass('like-btn');
+          <% end %>
+        </script>
+
+        가격: <%= item.price %><br>
+        브랜드명: <%= item.brand %><br>
+        카테고리: <%= item.category %><br>
+        판매일: <%= item.dueDate %><br>
+        주소: <%= item.url %><br>
+        제품설명: <%= item.content %>
       </div>
     <% end %>
 </div>

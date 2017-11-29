@@ -26,11 +26,11 @@ class ItemController < ApplicationController
   end
   
   def edit
-    authorize_action_for @item
+
   end
   
   def destory
-    authorize_action_for @item
+
   end
   
   def create
@@ -46,6 +46,6 @@ class ItemController < ApplicationController
     @item.save
     
     redirect_to '/item/all'
-    authorize_action_for @item
+  
   end
 end

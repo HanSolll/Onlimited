@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
+  get 'home/index'
+  
   get 'item/all'
 
   get 'item/brand'
@@ -13,15 +17,14 @@ Rails.application.routes.draw do
   
   get 'item/new' => 'item#new'
   
-  
-  
   post 'item/create' => 'item#create'
   
   get 'item/all' => 'item#all'
   
-  devise_for :users
+  post 'item/like/:item_id' => "likes#like_toggle"
+  
   root 'home#index'
-  get 'home/index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

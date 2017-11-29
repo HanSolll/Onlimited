@@ -10,8 +10,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :url
       t.text :content
       t.string :image
-      t.integer :item_id
-    
+ 
       t.timestamps null: false
     end
   end
