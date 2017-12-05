@@ -1,6 +1,6 @@
 class ItemController < ApplicationController
   def all
-  @item= Item.all.order(created_at: :desc)
+  @items= Item.all.order(created_at: :desc)
   end
   
   def show
@@ -46,6 +46,17 @@ class ItemController < ApplicationController
     @item.save
     
     redirect_to '/item/all'
-    authorize_action_for @item
+ 
+  end
+  
+  def hashtags
+    tag =Tag.find_by(name: params[:name])
+    @items= tag.items
+  end
+  
+  def search
+    
+    @items = Item.search(params[:search])
+    
   end
 end

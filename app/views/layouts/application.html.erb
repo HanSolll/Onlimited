@@ -20,34 +20,42 @@
   <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand"></li>
-
-              <% if user_signed_in? %>
-                <p><%= current_user.email %>님 환영합니다.</p>
-                <p><%= current_user.name %>님 환영합니다.</p>
-							<li><%= link_to "My Profile", edit_user_registration_path %></li>
-		          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-				    <% else %>
-				      <li><%= link_to "Sign in", new_user_session_path %></li>
-				      <li><%= link_to "Sign up", new_user_registration_path %></li>
-				    <% end %><br>
-                <li>
-                  <a href="#">All</a>
-                </li>
-                <li>
-                    <a href="#">Fashion</a>
-                </li>
-                <li>
-                    <a href="#">Cosmetic</a>
-                </li>
-                <li>
-                    <a href="#">Shoes</a>
-                </li>
-                <li>
-                    <a href="#">Brand</a>
-                </li>
-                <li>
-                    <a href="#">Etc</a>
-                </li>
+          <!-- Search -->
+    			<div class="search-button">
+    				<%= form_tag(item_all_path, :method => "get", :id => "search" ) do %>
+    					<p>
+    					<%= text_field_tag :search, params[:search], placeholder: "Search Items" %>
+    					<%= submit_tag "Search"%>
+    					</p>
+    				<% end %>
+    			</div>    
+          <% if user_signed_in? %>
+            <p><%= current_user.email %>님 환영합니다.</p>
+            <p><%= current_user.name %>님 환영합니다.</p>
+					  <li><%= link_to "My Profile", edit_user_registration_path %></li>
+		        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+				  <% else %>
+				    <li><%= link_to "Sign in", new_user_session_path %></li>
+				    <li><%= link_to "Sign up", new_user_registration_path %></li>
+				  <% end %><br>
+          <li>
+            <a href="/item/all">All</a>
+          </li>
+          <li>
+            <a href="#">Fashion</a>
+          </li>
+          <li>
+            <a href="#">Cosmetic</a>
+          </li>
+          <li>
+            <a href="#">Shoes</a>
+          </li>
+          <li>
+            <a href="#">Brand</a>
+          </li>
+          <li>
+            <a href="#">Etc</a>
+          </li>
        </ul>
   </div>
 </div>

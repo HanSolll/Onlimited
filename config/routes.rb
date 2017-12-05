@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   
   get 'item/new' => 'item#new'
   
+  get '/item/hashtag/:name', to:'item#hashtags'
   
+  get 'item/search' 
   
   post 'item/create' => 'item#create'
   
