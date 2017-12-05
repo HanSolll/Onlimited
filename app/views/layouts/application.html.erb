@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Onlimited::한정판_위에서다</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
   <!--핸드폰크기에맞춰서 글씨크기맞춰줌-->
   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 <body>
 <!-- Sidebar -->
@@ -30,9 +32,10 @@
     				<% end %>
     			</div>    
           <% if user_signed_in? %>
-            <p><%= current_user.email %>님 환영합니다.</p>
-            <p><%= current_user.name %>님 환영합니다.</p>
+            <p style="color:white"><%= current_user.email %>님 환영합니다.</p>
+            <p style="color:white"><%= current_user.name %>님 환영합니다.</p>
 					  <li><%= link_to "My Profile", edit_user_registration_path %></li>
+					  <li><%= link_to "My Page", mypage_user_registration_path %></li>
 		        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
 				  <% else %>
 				    <li><%= link_to "Sign in", new_user_session_path %></li>
@@ -42,19 +45,19 @@
             <a href="/item/all">All</a>
           </li>
           <li>
-            <a href="#">Fashion</a>
+            <a href="/item/fashion">Fashion</a>
           </li>
           <li>
-            <a href="#">Cosmetic</a>
+            <a href="/item/cosmetic">Cosmetic</a>
           </li>
           <li>
-            <a href="#">Shoes</a>
+            <a href="/item/shoes">Shoes</a>
           </li>
           <li>
-            <a href="#">Brand</a>
+            <a href="/item/brand">Brand</a>
           </li>
           <li>
-            <a href="#">Etc</a>
+            <a href="/item/etc">Etc</a>
           </li>
        </ul>
   </div>

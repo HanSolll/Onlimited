@@ -2,7 +2,11 @@ class Item < ActiveRecord::Base
 resourcify
 include Authority::UserAbilities
 mount_uploader :image, AvatarUploader
-has_and_belongs_to_many :tags
+  belongs_to :user
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
+  has_and_belongs_to_many :tags
+
   after_create do
       item = Item.find_by(id: self.id)
       hashtags = self.content.scan(/#\w+/)
@@ -11,7 +15,7 @@ has_and_belongs_to_many :tags
         item.tags << tag
       end
   
-    end
+  end
   
   before_update do
     item = Item.find_by(id: self.id)
@@ -21,7 +25,6 @@ has_and_belongs_to_many :tags
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
       item.tags << tag
     end
-
   end
   
   def self.search(search)
@@ -32,4 +35,5 @@ has_and_belongs_to_many :tags
       find(:all)
     end
   end  
+
 end

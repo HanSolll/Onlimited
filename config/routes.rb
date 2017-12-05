@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  get 'item/all'
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  
+  devise_scope :user do
+    get 'users/mypage', to:'users/registrations#mypage', :as => :mypage_user_registration
+  end
+  
+  get 'home/index'
+  
+  get 'item/all'  => 'item#all'
+  
+  get 'item/show/:item_id' => 'item#show'
 
   get 'item/brand'
 
@@ -19,11 +29,10 @@ Rails.application.routes.draw do
   
   post 'item/create' => 'item#create'
   
-  get 'item/all' => 'item#all'
+  post 'item/:item_id/like' => "likes#like_toggle" , :as => 'item_like'
   
-  devise_for :users
   root 'home#index'
-  get 'home/index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

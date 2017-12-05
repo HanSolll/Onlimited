@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(version: 20171129091312) do
     t.string   "url"
     t.text     "content"
     t.string   "image"
-    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "items_tags", id: false, force: :cascade do |t|
     t.integer "item_id"
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 20171129091312) do
   add_index "items_tags", ["tag_id"], name: "index_items_tags_on_tag_id"
 
   create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

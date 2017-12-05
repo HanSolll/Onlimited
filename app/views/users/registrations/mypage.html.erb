@@ -1,0 +1,21 @@
+<div class="container" style="padding-top:70px"> 
+  <%= current_user.name %>님 페이지입니다.
+  <!--좋아요 출력-->
+  <div class="row" style="padding-top:25px">
+    <% @items.each do |item| %>
+      <% if current_user.is_like?(item) %>
+        <div class="col-12 col-md-8">
+          <a href="/item/show/<%= item.id %>" style="font-color:black"><%= item.name %></a>    
+        </div>
+        <div class="col-6 col-md-4">
+          <%= link_to item_like_path(item), class: "like-btn", method: :post, remote: :true do %>
+          <div>
+            <span><p><i class="fa fa-thumbs-up fa-x"></i></p></span>
+          </div>
+          <% end %>
+        </div>      
+      <% else %>
+      <% end %><hr>
+    <% end %>
+  </div>  
+</div>
